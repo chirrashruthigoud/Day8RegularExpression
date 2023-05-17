@@ -12,7 +12,8 @@ namespace RegularExpressionRegax
         {
             RegaxPattern pattern = new RegaxPattern();
             Console.WriteLine("Select following one.");
-            Console.WriteLine("1.MatchingPattern \n2.ValidImageFileType. \n3.WebsiteMatch.");
+            Console.WriteLine("1.MatchingPattern \n2.ValidImageFileType. \n3.WebsiteMatch." +
+                "\n4.LowerCaseUnderScore.");
             int obj = Convert.ToInt32(Console.ReadLine());
             switch (obj)
             {
@@ -26,6 +27,9 @@ namespace RegularExpressionRegax
 
                 case 3:
                     pattern.WebsiteMatch();
+                    break;
+                case 4:
+                    pattern.LowerCaseUnderScore();
                     break;
                 default:
                     Console.WriteLine("number not found");

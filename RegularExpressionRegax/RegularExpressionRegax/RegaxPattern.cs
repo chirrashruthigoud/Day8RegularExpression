@@ -40,7 +40,7 @@ namespace RegularExpressionRegax
         }
 
         public void WebsiteMatch()
-        {
+        { 
             string[] websiteAddresses = { "https://www.example.com", "http://google.com", "www.github.io", "invalid-website.com" };
 
             Regex regex = new Regex(@"^(https?://)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,6}(/[a-zA-Z0-9-]+)*(/)?$");
@@ -52,6 +52,20 @@ namespace RegularExpressionRegax
                     Console.WriteLine($"Valid website address: {websiteAddress}");
                 }
             }
+        }
+        public void LowerCaseUnderScore()
+        {
+            string input = "hello_world foo_bar abc_def_ghi";
+
+            Regex regex = new Regex(@"[a-z]+(_[a-z]+)+");
+
+            MatchCollection matches = regex.Matches(input);
+
+            foreach (Match match in matches)
+            {
+                Console.WriteLine($"Match found: {match.Value}");
+            }
+
         }
 
     }
