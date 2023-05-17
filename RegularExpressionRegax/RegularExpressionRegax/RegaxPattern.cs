@@ -39,5 +39,20 @@ namespace RegularExpressionRegax
             }
         }
 
+        public void WebsiteMatch()
+        {
+            string[] websiteAddresses = { "https://www.example.com", "http://google.com", "www.github.io", "invalid-website.com" };
+
+            Regex regex = new Regex(@"^(https?://)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,6}(/[a-zA-Z0-9-]+)*(/)?$");
+
+            foreach (string websiteAddress in websiteAddresses)
+            {
+                if (regex.IsMatch(websiteAddress))
+                {
+                    Console.WriteLine($"Valid website address: {websiteAddress}");
+                }
+            }
+        }
+
     }
 }
