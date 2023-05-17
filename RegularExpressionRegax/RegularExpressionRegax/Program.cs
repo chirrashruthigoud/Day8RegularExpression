@@ -11,7 +11,23 @@ namespace RegularExpressionRegax
         public static void Main(string[] args)
         {
             RegaxPattern pattern = new RegaxPattern();
-            pattern.MatchingPattern();
+            Console.WriteLine("Select following one.");
+            Console.WriteLine("1.MatchingPattern \n2.ValidImageFileType");
+            int obj = Convert.ToInt32(Console.ReadLine());
+            switch (obj)
+            {
+                case 1:
+
+                    pattern.MatchingPattern();
+                    break;
+                case 2:
+                    pattern.ValidImageFileType();
+                    break;
+                default:
+                    Console.WriteLine("number not found");
+                    break;
+
+            }
             Console.ReadLine();
         }
     }
