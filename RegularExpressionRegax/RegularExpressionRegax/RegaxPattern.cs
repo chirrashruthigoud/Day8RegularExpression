@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -40,7 +42,7 @@ namespace RegularExpressionRegax
         }
 
         public void WebsiteMatch()
-        { 
+        {
             string[] websiteAddresses = { "https://www.example.com", "http://google.com", "www.github.io", "invalid-website.com" };
 
             Regex regex = new Regex(@"^(https?://)?[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,6}(/[a-zA-Z0-9-]+)*(/)?$");
@@ -67,6 +69,21 @@ namespace RegularExpressionRegax
             }
 
         }
+        public void HtmlRegex()
+        {
+            string input = "<p>The <code>Regex</code> is a compiled representation of a regular expression.</p>";
 
+            // Regular expression pattern to match HTML tags
+            string pattern = @"<[^>]+>";
+
+            // Extract HTML tags using the pattern
+            MatchCollection matches = Regex.Matches(input, pattern);
+
+            // Print the matched HTML tags
+            foreach (Match match in matches)
+            {
+                Console.WriteLine(match.Value);
+            }
+        }
     }
 }
